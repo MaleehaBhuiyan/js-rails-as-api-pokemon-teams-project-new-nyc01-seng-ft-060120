@@ -12,44 +12,34 @@ document.addEventListener("DOMContentLoaded", function(){
 
     //fetch request 
 
-    const getPokemonData = () => {
-    fetch(POKEMONS_URL)
-    .then(response => response.json())
-    .then(pokemonData => console.log(pokemonData))
-    } 
+    // const getPokemonData = () => {
+    // fetch(POKEMONS_URL)
+    // .then(response => response.json())
+    // .then(pokemonData => renderCard(pokemonData))
+    // } 
     
+    const getTrainersData = () => {
+        fetch(TRAINERS_URL)
+        .then(response => response.json())
+        .then(trainersData => renderTrainers(trainersData))
 
+    }
+    
     //functions 
 
-    const renderPokemons = (pokemonData, trainerData) => {
-        pokemonData.forEach(pokemon => {
-            const div = document.createElement("div")
-            div.className = "card"
-            div.dataset.data.id = `{pokemon.id}`
-
-
-            <div class="card" data-id="1"><p>Prince</p>
-                <button data-trainer-id="1">Add Pokemon</button> 
-                <ul>
-                    <li>Jacey (Kakuna) <button class="release" data-pokemon-id="140">Release</button></li>
-            <li>Zachariah (Ditto) <button class="release" data-pokemon-id="141">Release</button></li>
-                <li>Mittie (Farfetch'd) <button class="release" data-pokemon-id="149">Release</button></li>
-                <li>Rosetta (Eevee) <button class="release" data-pokemon-id="150">Release</button></li>
-            <li>Rod (Beedrill) <button class="release" data-pokemon-id="151">Release</button></li>
-                </ul>
-            </div>
-  
-        });
+    const renderTrainers = (trainersData) => {
+        trainersData.forEach(trainer => {
+         console.log(trainer.pokemons)
+        })
     }
-
 
     //event listeners 
 
 
     //execution 
 
-    getPokemonData()
-
+    // getPokemonData()
+    getTrainersData()
 
 })
 
